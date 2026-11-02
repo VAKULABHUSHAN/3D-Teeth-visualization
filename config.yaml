@@ -1,0 +1,47 @@
+project:
+  name: "AI Dental 3D Reconstruction"
+  version: "0.1.0"
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  reconstruction_data: "data/reconstruction"
+  logs: "logs"
+
+quality:
+  min_images: 8
+  min_width: 640
+  min_height: 480
+  blur_threshold: 40.0
+  brightness_min: 30.0
+  brightness_max: 230.0
+  auto_reject_blurry: false
+  auto_reject_low_feature: false
+  min_keypoints: 1000
+  min_matches: 100
+  min_match_ratio: 0.05
+  min_registered_images: 8
+
+preprocessing:
+  enabled: true
+  target_mp: 10.0
+  resize:
+    enabled: true
+  denoise:
+    enabled: false
+  clahe:
+    enabled: false
+    clip_limit: 2.0
+    tile_grid_size: 8
+  sharpen:
+    enabled: false
+  exposure_correction:
+    enabled: false
+
+reconstruction:
+  colmap_path: "colmap"
+  camera_model: "SIMPLE_RADIAL"
+  single_camera: true
+
+matching:
+  strategy: "exhaustive"
